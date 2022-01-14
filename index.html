@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Virtual Keyboard </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="icon" href="C:\Users\kk198\OneDrive\Desktop\html\image\keyboard.png">
+	<link rel="stylesheet" type="text/css" href="keyboard.css">
+</head>
+<body style="background: rgb(63,251,249);
+background: radial-gradient(circle, rgba(63,251,249,1) 0%, rgba(70,252,73,0.9976365546218487) 100%);">
+	<h1 align="center" style="font-size: 50px;">VIRTUAL KEYBOARD</h1>
+	<h2 style="font-size: 50px; margin-left: 50px;">Feature</h2>
+	<ul style="font-size: 50px; margin-bottom: 50px;">
+		<li>Easy to integrate</li>
+		<li>Response</li>
+		<li>Vanilla js</li>
+	</ul>
+	<textarea id="kk" onfocus="amir()" onblur="amir2()" style="position: absolute; top: 230px; right: 170px; width: 500px; height: 100px; margin-bottom: 50px;"></textarea>
+	<div class="speak">
+		<button id="speak" style="position: absolute; margin-top: -130px; right: 170px; ">
+			<img src="C:\Users\kk198\OneDrive\Desktop\html\image\mic.jpeg" style="height: 20px; width: 15px;">
+		</button> 
+	</div>
+		<!-- <button id="text" onfocus="amir()" style="position: absolute;  right: 100px; background-color: black; width: 100px; height: 50px">⌨️</button> --> 
+		<!-- <p id="textarea"></p> -->
+		<div id="keyboard" class="keyboard">
+		<!-- <div class="keyboard__key"> -->
+			<div class="container">
+			<button type="button" onclick="myFunction(1)" class="keyboard__key">1</button>
+			<button type="button" onclick="myFunction(2)" class="keyboard__key">2</button>
+			<button type="button" onclick="myFunction(3)" class="keyboard__key">3</button>
+			<button type="button" onclick="myFunction(4)" class="keyboard__key">4</button>
+			<button type="button" onclick="myFunction(5)" class="keyboard__key">5</button>
+			<button type="button" onclick="myFunction(6)" class="keyboard__key">6</button>
+			<button type="button" onclick="myFunction(7)" class="keyboard__key">7</button>
+			<button type="button" onclick="myFunction(8)" class="keyboard__key">8</button>
+			<button type="button" onclick="myFunction(9)" class="keyboard__key">9</button>
+			<button type="button" onclick="myFunction(0)" class="keyboard__key">0</button>
+		    <button type="button" onclick="earse()" class="keyboard__key">⌫</button>
+		</div>
+		<div class="container">
+			<button type="button" onclick="myFunction('q')" class="keyboard__key">q</button>
+			<button type="button" onclick="myFunction('w')" class="keyboard__key">w</button>
+			<button type="button" onclick="myFunction('e')" class="keyboard__key">e</button>
+			<button type="button" onclick="myFunction('r')" class="keyboard__key">r</button>
+			<button type="button" onclick="myFunction('t')" class="keyboard__key">t</button>
+			<button type="button" onclick="myFunction('y')" class="keyboard__key">y</button>
+			<button type="button" onclick="myFunction('u')" class="keyboard__key">u</button>
+			<button type="button" onclick="myFunction('i')" class="keyboard__key">i</button>
+			<button type="button" onclick="myFunction('o')" class="keyboard__key">o</button>
+			<button type="button" onclick="myFunction('p')" class="keyboard__key">p</button>
+		</div>
+		<div class="container">
+			<button type="button" onclick="caps()" class="keyboard__key">⏏</button>
+			<button type="button" onclick="myFunction('a')" class="keyboard__key">a</button>
+			<button type="button" onclick="myFunction('s')" class="keyboard__key">s</button>
+			<button type="button" onclick="myFunction('d')" class="keyboard__key">d</button>
+			<button type="button" onclick="myFunction('f')" class="keyboard__key">f</button>
+			<button type="button" onclick="myFunction('g')" class="keyboard__key">g</button>
+			<button type="button" onclick="myFunction('h')" class="keyboard__key">h</button>
+			<button type="button" onclick="myFunction('j')" class="keyboard__key">j</button>
+			<button type="button" onclick="myFunction('k')" class="keyboard__key">k</button>
+			<button type="button" onclick="myFunction('l')" class="keyboard__key">l</button>
+			<button type="button" onclick="log()" class="keyboard__key">⏎</button>
+		</div>
+		<div class="container">
+			<!-- <button type="button" onclick="myFunction('☑')" class="keyboard__key">☑️</button> -->
+			<button type="button" onclick="myFunction('z')" class="keyboard__key">z</button>
+			<button type="button" onclick="myFunction('x')" class="keyboard__key">x</button>
+			<button type="button" onclick="myFunction('c')" class="keyboard__key">c</button>
+			<button type="button" onclick="myFunction('v')" class="keyboard__key">v</button>
+			<button type="button" onclick="myFunction('b')" class="keyboard__key">b</button>
+			<button type="button" onclick="myFunction('n')" class="keyboard__key">n</button>
+			<button type="button" onclick="myFunction('m')" class="keyboard__key">m</button>
+			<button type="button" onclick="myFunction(',')" class="keyboard__key">,</button>
+			<button type="button" onclick="myFunction('•')" class="keyboard__key">•</button>
+			<button type="button" onclick="myFunction('?')" class="keyboard__key">?</button>
+		</div>
+		<div class="container">
+			<button type="button" onclick="myFunction(' ')" class="keyboard__key">___</button>
+		</div>
+
+		<!-- </div> -->
+	</div>
+	<script>
+    var speak = document.getElementById('speak');
+    var textarea = document.getElementById('kk');
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+    speak.addEventListener('click', function () {
+        recognition.start();
+        textarea.innerHTML = '...speaking';
+    })
+    recognition.onresult = function (e) {
+        var transcript = e.results[0][0].transcript;
+        textarea.innerHTML = transcript;
+    }
+
+</script>
+		
+	
+
+
+	<script src="keyboard.js"></script>
+</body>
+</html>
